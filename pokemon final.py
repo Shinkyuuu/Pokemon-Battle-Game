@@ -27,31 +27,15 @@ wy = 0
 os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (wx,wy)
 
 # FULLSCREEN OR WINDOWED?
-pip = input("Does win32api work? (y/n) ")
-if pip == 'y':
-    # If win32api Works
-    from win32api import GetSystemMetrics
-    if resy > GetSystemMetrics(1):
-        win = pygame.display.set_mode((gamex, gamey))
-    else:
-        windowType = input("Windowed (a) or Fullscreen (b)? ")
-        
-        if windowType == 'a':
-            win = pygame.display.set_mode((gamex, gamey))
-        elif windowType == 'b':
-            win = pygame.display.set_mode((gamex, gamey), pygame.FULLSCREEN)
-        else:
-            print("That makes me error")
-else:          
-    # If win32api doesnt work
-    windowType = input("Windowed (a) or Fullscreen (b)? ")
-        
-    if windowType == 'a':
-        win = pygame.display.set_mode((gamex, gamey))
-    elif windowType == 'b':
-        win = pygame.display.set_mode((gamex, gamey), pygame.FULLSCREEN)
-    else:
-        print("That makes me error")
+
+windowType = input("Windowed (a) or Fullscreen (b)? ")
+    
+if windowType == 'a':
+    win = pygame.display.set_mode((gamex, gamey))
+elif windowType == 'b':
+    win = pygame.display.set_mode((gamex, gamey), pygame.FULLSCREEN)
+else:
+    print("That makes me error")
 
     print('\n' * 2)
     print("Coolio")
@@ -176,8 +160,8 @@ theLabDimensiony = int((gamex * 1.5) * 166 / 377)
 
 # BACKGROUND POSITIONS/ HIT BOXES
 
-theLabx = ((75 * gamey) / 1080)
-theLaby = ((-160 * gamey) / 1080)
+theLabx = int((75 * gamey) / 1080)
+theLaby = int((-160 * gamey) / 1080)
 
 thelabTopBox = (int((-100 * gamey) / 1080))
 thelabBottomBox =(int((225 * gamey) / 1080))
@@ -256,9 +240,9 @@ hp2y = int((270 * gamey) / 1080)
 battleStart = [pygame.transform.scale(pygame.image.load('Assets/start0.png').convert_alpha(), (playerDimensionx, playerDimensiony)), pygame.transform.scale(pygame.image.load('Assets/start1.png').convert_alpha(), (playerDimensionx, playerDimensiony)), pygame.transform.scale(pygame.image.load('Assets/start2.png').convert_alpha(), (playerDimensionx, playerDimensiony)), pygame.transform.scale(pygame.image.load('Assets/start3.png').convert_alpha(), (playerDimensionx, playerDimensiony)), pygame.transform.scale(pygame.image.load('Assets/start4.png').convert_alpha(), (playerDimensionx, playerDimensiony)), pygame.transform.scale(pygame.image.load('Assets/start5.png').convert_alpha(),
                 (playerDimensionx, playerDimensiony)), pygame.transform.scale(pygame.image.load('Assets/start6.png').convert_alpha(), (playerDimensionx, playerDimensiony)), pygame.transform.scale(pygame.image.load('Assets/start7.png').convert_alpha(), (playerDimensionx, playerDimensiony)), pygame.transform.scale(pygame.image.load('Assets/start8.png').convert_alpha(), (playerDimensionx, playerDimensiony)), pygame.transform.scale(pygame.image.load('Assets/start9.png').convert_alpha(), (playerDimensionx, playerDimensiony))]
 
-playerMoveLeft = [pygame.transform.scale(pygame.image.load('l0.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('Assets/l1.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('Assets/l2.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)),pygame.transform.scale(pygame.image.load('Assets/l3.png').convert_alpha(), (spriteDimensionx, spriteDimensiony))]
+playerMoveLeft = [pygame.transform.scale(pygame.image.load('Assets/l0.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('Assets/l1.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('Assets/l2.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)),pygame.transform.scale(pygame.image.load('Assets/l3.png').convert_alpha(), (spriteDimensionx, spriteDimensiony))]
 playerMoveRight = [pygame.transform.scale(pygame.image.load('Assets/r0.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('Assets/r1.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('Assets/r2.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)),pygame.transform.scale(pygame.image.load('Assets/r3.png').convert_alpha(), (spriteDimensionx, spriteDimensiony))]
-playerMoveFront = [pygame.transform.scale(pygame.image.load('Assets/f0.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('Assets/f1.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('Assets/f2.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)),pygame.transform.scale(pygame.image.load('f3.png').convert_alpha(), (spriteDimensionx, spriteDimensiony))]
+playerMoveFront = [pygame.transform.scale(pygame.image.load('Assets/f0.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('Assets/f1.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('Assets/f2.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)),pygame.transform.scale(pygame.image.load('Assets/f3.png').convert_alpha(), (spriteDimensionx, spriteDimensiony))]
 playerMoveBack = [pygame.transform.scale(pygame.image.load('Assets/b0.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('Assets/b1.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('Assets/b2.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)),pygame.transform.scale(pygame.image.load('Assets/b3.png').convert_alpha(), (spriteDimensionx, spriteDimensiony))]
 
 
@@ -273,7 +257,7 @@ bgrassLand1 = pygame.transform.scale(pygame.image.load('Assets/bgrass2land1.png'
 bgrassLand2 = pygame.transform.scale(pygame.image.load('Assets/bgrass2land2.png').convert_alpha(), (bglandDimension2x, bglandDimension2y))
 bgrassTransition = pygame.transform.scale(pygame.image.load('Assets/grasstransitions.png').convert_alpha(), (bgtransitionDimensionx, bgtransitionDimensiony))
 lower = pygame.transform.scale(pygame.image.load('Assets/lower.png').convert_alpha(), (lowerDimensionx, lowerDimensiony))
-pokeballSelection = pygame.transform.scale(pygame.image.load('pokemonSelection.png').convert_alpha(), (lowerDimensionx, lowerDimensiony))
+pokeballSelection = pygame.transform.scale(pygame.image.load('Assets/pokemonSelection.png').convert_alpha(), (lowerDimensionx, lowerDimensiony))
 
 battleText = pygame.transform.scale(pygame.image.load('Assets/battleText.png').convert_alpha(), (battleTextDimensionx, battleTextDimensiony))
 battleMode = pygame.transform.scale(pygame.image.load('Assets/lowerbattlechoose.png').convert_alpha(), (lowerDimensionx, lowerDimensiony))
@@ -282,7 +266,7 @@ grassAttack = pygame.transform.scale(pygame.image.load('Assets/grassattack.png')
 waterAttack = pygame.transform.scale(pygame.image.load('Assets/waterattack.png').convert_alpha(), (attackDimensionx, attackDimensiony))
 fireAttack = pygame.transform.scale(pygame.image.load('Assets/fireattack.png').convert_alpha(), (attackDimensionx, attackDimensiony))
 bigSelect = pygame.transform.scale(pygame.image.load('Assets/bigselect.png').convert_alpha(), (bigButtonDimensionx, bigButtonDimensiony))
-mediumSelect = pygame.transform.scale(pygame.image.load('mediumselect.png').convert_alpha(), (mediumButtonDimensionx, mediumButtonDimensiony))
+mediumSelect = pygame.transform.scale(pygame.image.load('Assets/mediumselect.png').convert_alpha(), (mediumButtonDimensionx, mediumButtonDimensiony))
 
 playerHP = pygame.transform.scale(pygame.image.load('Assets/playerhp.png').convert_alpha(), (hpDimensionx, hpDimensiony))
 enemyHP = pygame.transform.scale(pygame.image.load('Assets/enemyhp.png').convert_alpha(), (hpDimensionx, hpDimensiony))
@@ -341,7 +325,7 @@ def superDelay (default2 = .025): # DELAYS FOR A SPECIFIC AMOUNT OF TIME (USE FO
 
 
 def newText(string): # GENERIC TEXT THAT MAKES CHARACTERS APPEAR, REQUIRES THE PRESS OF THE SPACE BAR TO DISSAPEAR  (ONE AT A TIME)
-    font = pygame.font.Font("PokemonDPPt.ttf", (int((51 * gamey) / 1080)))
+    font = pygame.font.Font("Assets/PokemonDPPt.ttf", (int((51 * gamey) / 1080)))
     if (len(string)) > 62: # Max Character Length
         print("THAT WILL NOT WORK")
     delay(.5)
@@ -399,7 +383,7 @@ def newText(string): # GENERIC TEXT THAT MAKES CHARACTERS APPEAR, REQUIRES THE P
  
             
 def newAttackText(string): # THE SAME AS NEW TEXT, BUT DOESN'T REQUIRE THE SPACE BAR TO GO AWAY. (DISSAPEARS ON ITS OWN)  (ONE AT A TIME)
-    font = pygame.font.Font("PokemonDPPt.ttf", (int((51 * gamey) / 1080)))
+    font = pygame.font.Font("Assets/PokemonDPPt.ttf", (int((51 * gamey) / 1080)))
     if (len(string)) > 62: # Max Character Length
         print("THAT WILL NOT WORK")
     
@@ -449,7 +433,7 @@ def newAttackText(string): # THE SAME AS NEW TEXT, BUT DOESN'T REQUIRE THE SPACE
             delay(.02)
             
 def playerNameText(string): # TEXT FOR THE PLAYER'S POKEMON'S NAME (INSTANT)
-    font = pygame.font.Font("PokemonDPPt.ttf", (int((46 * gamey) / 1080)))
+    font = pygame.font.Font("Assets/PokemonDPPt.ttf", (int((46 * gamey) / 1080)))
     
  
     textx = int((445 * gamey) / 1080)
@@ -464,7 +448,7 @@ def playerNameText(string): # TEXT FOR THE PLAYER'S POKEMON'S NAME (INSTANT)
     pygame.display.update()
 
 def enemyNameText(string): # TEXT FOR THE ENEMY'S POKEMON'S NAME (INSTANT)
-    font = pygame.font.Font("PokemonDPPt.ttf", (int((46 * gamey) / 1080)))
+    font = pygame.font.Font("Assets/PokemonDPPt.ttf", (int((46 * gamey) / 1080)))
    
  
     textx = int((10 * gamey) / 1080)
@@ -479,7 +463,7 @@ def enemyNameText(string): # TEXT FOR THE ENEMY'S POKEMON'S NAME (INSTANT)
     pygame.display.update()
 
 def attack1Text(string): # ATTACK TEXT FOR TOP LEFT BUTTON (INSTANT)
-    font = pygame.font.Font(("PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
+    font = pygame.font.Font(("Assets/PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
    
  
     textx = int((60 * gamey) / 1080)
@@ -493,7 +477,7 @@ def attack1Text(string): # ATTACK TEXT FOR TOP LEFT BUTTON (INSTANT)
     pygame.display.update()
     
 def attack2Text(string): # ATTACK TOP RIGHT (INSTANT)
-    font = pygame.font.Font(("PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
+    font = pygame.font.Font(("Assets/PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
  
     textx = int((420 * gamey) / 1080)
     texty = int((638 * gamey) / 1080)
@@ -507,7 +491,7 @@ def attack2Text(string): # ATTACK TOP RIGHT (INSTANT)
     pygame.display.update()
     
 def attack3Text(string): # ATTACK TEXT FOR BOTTOM LEFT BUTTON (INSTANT)
-    font = pygame.font.Font(("PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
+    font = pygame.font.Font(("Assets/PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
 
     textx = int((60 * gamey) / 1080)
     texty = int((806 * gamey) / 1080)
@@ -520,7 +504,7 @@ def attack3Text(string): # ATTACK TEXT FOR BOTTOM LEFT BUTTON (INSTANT)
     pygame.display.update()
     
 def attack4Text(string): # ATTACK TEXT FOR BOTTOM RIGHT BUTTON (INSTANT)
-    font = pygame.font.Font(("PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
+    font = pygame.font.Font(("Assets/PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
 
     textx = int((420 * gamey) / 1080)
     texty = int((806 * gamey) / 1080)
@@ -534,7 +518,7 @@ def attack4Text(string): # ATTACK TEXT FOR BOTTOM RIGHT BUTTON (INSTANT)
     pygame.display.update()
 
 def pp1Text(string): # ATTACK 1 POWER POINTS
-    font = pygame.font.Font(("PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
+    font = pygame.font.Font(("Assets/PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
     textx = int((225 * gamey) / 1080)
     texty = int((668 * gamey) / 1080)
     text = ''
@@ -546,7 +530,7 @@ def pp1Text(string): # ATTACK 1 POWER POINTS
     pygame.display.update()
 
 def pp2Text(string): # ATTACK 2 POWER POINTS
-    font = pygame.font.Font(("PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
+    font = pygame.font.Font(("Assets/PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
     textx = int((585 * gamey) / 1080)
     texty = int((668 * gamey) / 1080)
     text = ''
@@ -558,7 +542,7 @@ def pp2Text(string): # ATTACK 2 POWER POINTS
     pygame.display.update()
 
 def pp3Text(string): # ATTACK 3 POWER POINTS
-    font = pygame.font.Font(("PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
+    font = pygame.font.Font(("Assets/PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
     textx = int((225 * gamey) / 1080)
     texty = int((836 * gamey) / 1080)
     text = ''
@@ -570,7 +554,7 @@ def pp3Text(string): # ATTACK 3 POWER POINTS
     pygame.display.update()
     
 def pp4Text(string): # ATTACK 4 POWER POINTS
-    font = pygame.font.Font(("PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
+    font = pygame.font.Font(("Assets/PokemonDPPt.ttf"), (int((46 * gamey) / 1080)))
     textx = int((585 * gamey) / 1080)
     texty = int((836 * gamey) / 1080)
     text = ''
@@ -1307,13 +1291,13 @@ def animate():
     enemyHealth = 314
     while variableBS < 13:
         pygame.display.update()
-        win.blit(pygame.transform.scale(pygame.image.load('battle0.png'), (int(gamex), int(gamey / 2))), (0, 0))
+        win.blit(pygame.transform.scale(pygame.image.load('Assets/battle0.png'), (int(gamex), int(gamey / 2))), (0, 0))
         variableBS += 1
         delay(.08)
     variableBS = 0
     while variableBS < 20:
         pygame.display.update()
-        win.blit(pygame.transform.scale(pygame.image.load('battle' + str(variableBS) + '.png'), (int(gamex), int(gamey / 2))), (0, 0))
+        win.blit(pygame.transform.scale(pygame.image.load('Assets/battle' + str(variableBS) + '.png'), (int(gamex), int(gamey / 2))), (0, 0))
         variableBS += 1
         delay(.08)
     variableBS = 0
@@ -1332,7 +1316,7 @@ def animate():
         win.blit(bgrassLand1, (bgland1xi, bgland1yi))
         win.blit(bgrassLand2, (bgland2xi, bgland2yi))
         win.blit(enemyPokemon, (pokemon2xi, pokemon2yi))
-        win.blit(pygame.transform.scale(pygame.image.load('start3.png'), (playerDimensionx, playerDimensiony)), (initialx, initialy))
+        win.blit(pygame.transform.scale(pygame.image.load('Assets/start3.png'), (playerDimensionx, playerDimensiony)), (initialx, initialy))
         delay(.02)
         
     # Player now in position and ready to throw 
@@ -1353,7 +1337,7 @@ def animate():
         #Animate the pokeball
         if variable0 > 5:
             #Pokeball rotation animation
-            pokeframe = pygame.transform.scale(pygame.image.load('pokeball' + str(pokeCounter) + '.png'), (pokeballDimensionx, pokeballDimensiony))
+            pokeframe = pygame.transform.scale(pygame.image.load('Assets/pokeball' + str(pokeCounter) + '.png'), (pokeballDimensionx, pokeballDimensiony))
             win.blit(pokeframe, (pokex, pokey))
             if pokey < int((190 * gamey) / 1080):
                 pokey -= int((18 * gamey) / 1080)
@@ -1386,7 +1370,7 @@ def animate():
         win.blit(battleText, (0, int((540 * gamey) / 1080) - ((gamey / 2) * .25)))
         for variable11 in range (0,1):
             #After the player throws the pokeball into the air, this is the animation for it falling and hitting the ground
-            pokeframe2 = pygame.transform.scale(pygame.image.load('pokeball' + str(pokeCounter) + '.png'), (pokeballDimensionx, pokeballDimensiony))
+            pokeframe2 = pygame.transform.scale(pygame.image.load('Assets/pokeball' + str(pokeCounter) + '.png'), (pokeballDimensionx, pokeballDimensiony))
             win.blit(pokeframe2, (pokex, pokey))
             if pokey > int((360 * gamey) / 1080):
                 pokey += 0
