@@ -337,7 +337,7 @@ def newText(string): # GENERIC TEXT THAT MAKES CHARACTERS APPEAR, REQUIRES THE P
     text2 = ''
     text3 = ''
     
-    win.blit(battleText, (0, int((540 * gamey) / 1080) - ((gamey / 2) * .25))) # Text Box
+    win.blit(battleText, (0, int(((540 * gamey) / 1080) - ((gamey / 2) * .25)))) # Text Box
     length = int(len(string))
     if length > (maxWidth // (int((51 * gamey) / 1080))):# If the string will be more than 1 line long
         newLength = (maxWidth // (int((51 * gamey) / 1080)))
@@ -395,7 +395,7 @@ def newAttackText(string): # THE SAME AS NEW TEXT, BUT DOESN'T REQUIRE THE SPACE
     text2 = ''
     text3 = ''
     
-    win.blit(battleText, (0, int((540 * gamey) / 1080) - ((gamey / 2) * .25))) # Text Box
+    win.blit(battleText, (0, int(((540 * gamey) / 1080) - ((gamey / 2) * .25)))) # Text Box
     length = int(len(string))
     if length > (maxWidth // (int((51 * gamey) / 1080))):# If the string will be more than 1 line long
         newLength = (maxWidth // (int((51 * gamey) / 1080)))
@@ -1312,7 +1312,7 @@ def animate():
         win.fill((0,0,0))
         win.blit(bgrassTransition, (bgTransitionxi, bgTransitionyi))
         win.blit(lower, (0, int((540 * gamey) / 1080)))
-        win.blit(battleText, (0, int((540 * gamey) / 1080) - ((gamey / 2) * .25)))
+        win.blit(battleText, (0, int(((540 * gamey) / 1080) - ((gamey / 2) * .25))))
         win.blit(bgrassLand1, (bgland1xi, bgland1yi))
         win.blit(bgrassLand2, (bgland2xi, bgland2yi))
         win.blit(enemyPokemon, (pokemon2xi, pokemon2yi))
@@ -1333,7 +1333,7 @@ def animate():
         win.blit(bgrassLand, (0,0))
         win.blit(enemyPokemon, (pokemon2xi, pokemon2yi))
         win.blit(lower, (0, int((540 * gamey) / 1080)))
-        win.blit(battleText, (0, int((540 * gamey) / 1080) - ((gamey / 2) * .25)))
+        win.blit(battleText, (0, int(((540 * gamey) / 1080) - ((gamey / 2) * .25))))
         #Animate the pokeball
         if variable0 > 5:
             #Pokeball rotation animation
@@ -1354,7 +1354,7 @@ def animate():
             
                
         #Animate the player 
-        frame = pygame.transform.scale(pygame.image.load('start'+ str(variable0) +'.png'), (playerDimensionx, playerDimensiony))
+        frame = pygame.transform.scale(pygame.image.load('Assets/start'+ str(variable0) +'.png'), (playerDimensionx, playerDimensiony))
         win.blit(frame, (x, y))
         #Update the display 
         pygame.display.update()        
@@ -1367,7 +1367,7 @@ def animate():
         win.blit(bgrassLand, (0,0))
         win.blit(enemyPokemon, (pokemon2xi, pokemon2yi))
         win.blit(lower, (0, int((540 * gamey) / 1080)))
-        win.blit(battleText, (0, int((540 * gamey) / 1080) - ((gamey / 2) * .25)))
+        win.blit(battleText, (0, int(((540 * gamey) / 1080) - ((gamey / 2) * .25))))
         for variable11 in range (0,1):
             #After the player throws the pokeball into the air, this is the animation for it falling and hitting the ground
             pokeframe2 = pygame.transform.scale(pygame.image.load('Assets/pokeball' + str(pokeCounter) + '.png'), (pokeballDimensionx, pokeballDimensiony))
@@ -1391,7 +1391,7 @@ def animate():
                 pokeCounter = pokeCounter + 1
                 
         #Player moves to the left until no longer visible
-        win.blit(pygame.transform.scale(pygame.image.load('start9.png'), (playerDimensionx, playerDimensiony)), (x,y))
+        win.blit(pygame.transform.scale(pygame.image.load('Assets/start9.png'), (playerDimensionx, playerDimensiony)), (x,y))
         pygame.display.update()
         x -= vel
         delay()
@@ -1404,7 +1404,7 @@ def animate():
     win.blit(pokemon, (pokemonx, pokemony))
     pygame.draw.rect(win, (0, 0, 0), (0, int((540 * gamey / 1080) - (gamey / 2 * .25)), battleTextDimensionx, battleTextDimensiony))
     win.blit(lower, (0, int((540 * gamey) / 1080)))
-    win.blit(battleText, (0, int((540 * gamey) / 1080) - ((gamey / 2) * .25)))
+    win.blit(battleText, (0, int(((540 * gamey) / 1080) - ((gamey / 2) * .25))))
     pygame.display.update()
     
     choose()# PLAYER PICKS WHICH ATTACK TO DO AND THE ENEMY ATTACKS BACK
@@ -2498,126 +2498,6 @@ while run:
     if keys[pygame.K_6]:
         pokemon = chimcharB
         print("Pokemon set to Chimchar")
-        
-   
-    
     
 pygame.quit()
-
-
-
-
-'''----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                                        REFERENCES (REDACTED/REDUNDANT CODE)
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'''
-# Player now in position and ready to throw 
-'''
-    win.fill((0,0,0))
-    win.blit(bgrass, (0,0))
-    win.blit(lower, (0, int((540 * gamey) / 1080)))
-    win.blit(battleText, (0, int((540 * gamey) / 1080) - ((gamey / 2) * .25)))
-    win.blit(pygame.transform.scale(pygame.image.load('start3.png'), (playerDimensionx, playerDimensiony)), (x, y))
-    pygame.display.update()
-'''
-# Initial battle start animation
-'''    
-    # First Frame, sets the background and the Players first position
-    win.fill((0,0,0))
-    win.blit(bgrassTransition, (bgTransitionxi,bgTransitionyi))
-    
-    
-    win.blit(lower, (0, int((540 * gamey) / 1080)))
-    win.blit(battleText, (0, int((540 * gamey) / 1080) - ((gamey / 2) * .25)))
-    pygame.display.update()
-    delay(2)
-'''
-'''                            
-    win.blit(bgrass, (0,0))
-    win.blit(pygame.transform.scale(pygame.image.load('start3.png'), (playerDimensionx, playerDimensiony)), (x, y))
-    pygame.display.update()
-    x -= vel
-    time.sleep(.05)
-
-    Original sprite image is 31 x 31
-
-    When scaling to the x and y dimensions of an item. use (x * gamey / 1080)
-    When finding the x position of a sprite, use (x * gamex / resx)
-    When findinf the y position of a sprite, usse (gamey)
-'''
-#TYPING TEST
-'''
-newText("I am not very good at typing butI do knoe how to type ?")
-newText("1 2  3   4    5     6      7       8        9         10")
-newText
-newText('a')
-newText('aa')
-newText('aaa')
-newText('aaaa')
-newText('aaaaa')
-newText('aaaaaa')
-newText('aaaaaaa')
-newText('aaaaaaaa')
-newText('aaaaaaaaa')
-newText('aaaaaaaaaa')
-newText('aaaaaaaaaaa')
-newText('aaaaaaaaaaaa')
-newText('aaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-newText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-'''
-# RILEY'S IMAGES
-'''
-rileyMoveLeft = [pygame.transform.scale(pygame.image.load('al0.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('al1.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('al2.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)),pygame.transform.scale(pygame.image.load('al3.png').convert_alpha(), (spriteDimensionx, spriteDimensiony))]
-rileyMoveRight = [pygame.transform.scale(pygame.image.load('ar0.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('ar1.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('ar2.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)),pygame.transform.scale(pygame.image.load('ar3.png').convert_alpha(), (spriteDimensionx, spriteDimensiony))]
-rileyMoveFront = [pygame.transform.scale(pygame.image.load('af0.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('af1.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('af2.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)),pygame.transform.scale(pygame.image.load('af3.png').convert_alpha(), (spriteDimensionx, spriteDimensiony))]
-rileyMoveBack = [pygame.transform.scale(pygame.image.load('ab0.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('ab1.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)), pygame.transform.scale(pygame.image.load('ab2.png').convert_alpha(), (spriteDimensionx, spriteDimensiony)),pygame.transform.scale(pygame.image.load('ab3.png').convert_alpha(), (spriteDimensionx, spriteDimensiony))]
-
-'''
 
