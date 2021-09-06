@@ -10,4 +10,5 @@ Cutscenes | Choosing Pokemon
 # Imports
 <ul>
   <li>pygame</li>    
+  <li>matplotlib</li>   
 </ul>
