@@ -595,12 +595,6 @@ def enemyPokemonStuff():
         enemyHealth = 314
         enemyAttacks = [["Bubble", 40], ["Fury Attack", 15], ["Whirlpool", 35], ["Hydro Pump", 110]]
     
-
-  
-
-
-
-
 def enemyAttackSequence():
     global enemyHealth
     global attackDamage
@@ -648,10 +642,7 @@ def enemyAttackSequence():
                     playerHealth -= 1
                     playerHealhBar()
                     delay(.01)
-
-
-    
-            
+   
 '''----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                                                                             PLAYER POKEMON MOVES AND STATS
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'''
@@ -749,8 +740,6 @@ def chimchar():
     win.blit(fireAttack, (int((367 * gamey) / 1080), int((766 * gamey) / 1080))) # BOTTOM RIGHT
     attackDamage4 = 18
 
-
-    
 def pokemonStuff():
     if pokemon == turtwigB: # INITIAL FRAME
         turtwig()
@@ -788,12 +777,10 @@ def pokemonButtonStuff():
         piplupButtons()
     elif pokemon == chimcharB:
         chimcharButtons()
-
             
 '''----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                                                                                    ANIMATION FOR PLAYER'S POKEMON ATTACKING
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'''
-
 
 def playerPokemonAttack():
     global pokemonx
@@ -825,15 +812,10 @@ def playerPokemonAttack():
     playerHealhBar()
     enemyHealhBar()
     pygame.display.update()
-     
-
-
-
 
 '''----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                                                                                     HEALTH BARS
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'''
-
 
 def enemyHealhBar():
     global enemyHealth
@@ -884,8 +866,6 @@ def choose():
     
     playerHealhBar()
     enemyHealhBar()
-    
-    
     
     attack1Text(pokemonUsed1)
     attack2Text(pokemonUsed2)
@@ -1006,7 +986,6 @@ def choose():
             pp2Text(str(pp2))
             pp3Text(str(pp3))
             pp4Text(str(pp4))
-   
         
         elif keys[pygame.K_UP]:# UP
             if left1 and up1 and not down1 and not right1:# TOP LEFT
@@ -1059,8 +1038,6 @@ def choose():
             pp2Text(str(pp2))
             pp3Text(str(pp3))
             pp4Text(str(pp4))
-  
-
             
         elif keys[pygame.K_DOWN]:# DOWN
             if left1 and up1 and not down1 and not right1:# TOP LEFT
@@ -1141,8 +1118,7 @@ def choose():
                             newAttackText(pokemonName+ " Fainted!")
                         else:
                             playerHealhBar()
-                            newAttackText("What will " +pokemonName+ " do?")
-                    
+                            newAttackText("What will " +pokemonName+ " do?")    
                 
                 else:
                     newAttackText(pokemonName+ " is all out!")
@@ -1173,12 +1149,10 @@ def choose():
                         else:
                             playerHealhBar()
                             newAttackText("What will " +pokemonName+ " do?")
-                    
-                   
+                            
                 else:
                     newAttackText(pokemonName+ " is all out!")
-                    
-
+    
             elif not up1 and not right1 and down1 and left1:# BOTTOM LEFT
                 if pp3 > 0:
                     newAttackText(pokemonName+ " used "+ pokemonUsed3 + "!")
@@ -1205,7 +1179,6 @@ def choose():
                         else:
                             playerHealhBar()
                             newAttackText("What will " +pokemonName+ " do?")
-                    
                     
                 else:
                     newAttackText(pokemonName+ " is all out!")
@@ -1235,17 +1208,11 @@ def choose():
                             newAttackText(pokemonName+ " Fainted!")
                         else:
                             playerHealhBar()
-                            newAttackText("What will " +pokemonName+ " do?")
-                
-                    
-                    
+                            newAttackText("What will " +pokemonName+ " do?")      
+                            
                 else:
                     newAttackText(pokemonName+ " is all out!")
-               
-                
-     
 
-                
         else:
             attack1Text(pokemonUsed1)
             attack2Text(pokemonUsed2)
@@ -1256,8 +1223,7 @@ def choose():
             pp3Text(str(pp3))
             pp4Text(str(pp4))
             pygame.display.update()
-            
-       
+      
 '''----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                                                                     Animation for the Player throwing the pokeball (BATTLE MODE)
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'''
@@ -1351,7 +1317,6 @@ def animate():
                 pokey -= int((40 * gamey) / 1080)
                 pokex += int((12 * gamey) / 1080)
             pokeCounter = pokeCounter + 1
-            
                
         #Animate the player 
         frame = pygame.transform.scale(pygame.image.load('Assets/start'+ str(variable0) +'.png'), (playerDimensionx, playerDimensiony))
@@ -1447,7 +1412,6 @@ def moveSprite():
     global holderx
     global holdery
     
-
     if walkCount  == 32:
         walkCount = 0
     # FOR walkCount 0 to 7, it will call playerMove(DIRECTION)[0] because // truncates the answer, each image of the walking animation will be held for 8 frames each. (Frame length is determined by superDelay())
@@ -1488,7 +1452,6 @@ def moveSprite():
             
         elif not holderx and not holdery:
             win.blit(playerMoveBack[1], (spritex, spritey))
-            
     
 '''----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                                                                     Animation for player controlling THE PROFESSOR
@@ -1498,7 +1461,6 @@ def moveProf():
     global walkCount2
     global holderx2
     global holdery2
-    
 
     if walkCount2  == 32:
         walkCount2 = 0
@@ -1545,7 +1507,6 @@ def moveProf():
                                                                                     WHAT SHOULD THE SPRITE DO IF IT RUNS INTO A WALL?
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'''
             
-   
 def borderLeft():
     global thelabLeftBox
     global thelabRightBox
@@ -1752,9 +1713,6 @@ def borderDown():
     spritey2 -= spriteVel
     theLaby -= spriteVel
 
-    
-
-
 '''----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                                                                     PLAYER PICKS HIS STARTER POKEMON!
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'''
@@ -1787,8 +1745,7 @@ def pickAPokemon():
                 middleButton = False
                 rightButton = False
                 newAttackText("TURTWIG?")
-                
-               
+                    
         elif keys[pygame.K_RIGHT]:
             if leftButton and not middleButton and not rightButton: # IF LEFT
                 leftButton = False
@@ -1822,7 +1779,6 @@ def pickAPokemon():
             
         else:
             pygame.display.update()
-
 
 '''----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                                                                     Inside the Grass some lyes yet unseen?
@@ -1871,16 +1827,12 @@ def dangerZone2():
     dangerZoneLeft2 = thelabWallRightBox + (random.choice(dangerZonePotentialLeft))
     dangerZoneRight2 = int(dangerZoneLeft2) + int((50 * gamey) / 1080)
     dangerZoneBottom2 = int(dangerZoneTop2) + int((50 * gamey) / 1080)
-    
-        
-   
-    
+
 '''----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'''
 #                                                                                ~ANIMATION THAT STARTS THE GAME~
 '''----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'''
 dangerZone()
 dangerZone2()
-
 
 def profLeftAnimation():
     global front2
@@ -1890,7 +1842,8 @@ def profLeftAnimation():
     front2 = False
     left2 = True
     right2 = False
-    back2 = False
+    back2 = False 
+
 def profRightAnimation():
     global front2
     global back2
@@ -1900,6 +1853,7 @@ def profRightAnimation():
     left2 = False
     right2 = True
     back2 = False
+
 def profUpAnimation():
     global front2
     global back2
@@ -1909,6 +1863,7 @@ def profUpAnimation():
     left2 = False
     right2 = False
     back2 = True
+
 def profDownAnimation():
     global front2
     global back2
@@ -1928,6 +1883,7 @@ def playerLeftAnimation():
     right = False
     front = False
     back = False
+
 def playerRightAnimation():
     global front
     global back
@@ -1937,6 +1893,7 @@ def playerRightAnimation():
     right = True
     front = False
     back = False
+
 def playerUpAnimation():
     global front
     global back
@@ -1946,6 +1903,7 @@ def playerUpAnimation():
     right = False
     front = False
     back = True
+
 def playerDownAnimation():
     global front
     global back
@@ -1955,6 +1913,7 @@ def playerDownAnimation():
     right = False
     front = True
     back = False
+
 def setLowerLabLights():
     global theLabx
     global theLaby
@@ -2012,11 +1971,13 @@ for profSteps in range (0, 20): # PROF WALKS DOWN TOWARDS YOU
     setLowerLabLights()
     spritey2 += profVel
     pygame.display.update()
+
 newText("Welcome to the Pokemon testing and training center!") # DIALOGUE
 newAttackText("Let me show you around ") # DIALOGUE
 delay(.5)
 newText("Follow me!") # DIALOGUE
 delay(.05)
+
 for profSteps in range (0, 6): # PROF WALKS UP AWAY
     superDelay()
     profUpAnimation()
@@ -2065,6 +2026,7 @@ newAttackText("This is a place where people    can come to train their pokemon,"
 delay(.7)
 newAttackText("as well as try out new ones") # DIALOGUE
 delay(1)
+
 for profSteps in range (0,40): # PROF WALKS RIGHT WHILE YOU FOLLOW
     superDelay()
     playerRightAnimation()
@@ -2214,7 +2176,6 @@ newText("You can use this machine here    to restore its health.") # DIALOGUE
 newAttackText("We dont carry potions here, ") # DIALOGUE
 delay(.5)
 newText("so this is the only way to heal your pokemon if it gets hurt." ) # DIALOGUE
-
 newAttackText("Well,") # DIALOGUE
 delay(.5)
 newText("Thats about all there is to       know about this place.") # DIALOGUE
@@ -2225,6 +2186,7 @@ newText("you would like to use          in battle.") # DIALOGUE
 newAttackText("Ill be at my desk, ") # DIALOGUE
 delay(.4)
 newText("so go ahead and battle to your hearts content!") # DIALOGUE
+
 for profSteps in range (0,10): # PROF WALKS UP
     superDelay()
     profUpAnimation()
@@ -2262,8 +2224,6 @@ for profSteps in range (0,17): # PROF WALKS TO HIS DESK
 #                                                                                ~While loop that runs the game~
 '''----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'''
 
-
-
 while run:
     pygame.event.get()
     superDelay()
@@ -2286,10 +2246,9 @@ while run:
             pickAPokemon()
             delay(1)
             
-        
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~PLAYER~~~~~~~~~~~~~~~~~~~~~~~~~~
             
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~BORDERS AND HITBOXES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~BORDERS AND HITBOXES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     if (thelabWallLeftBox <= spritex <= thelabWallRightBox) and ((thelabWallBottomBox <= spritey) or ( spritey <= thelabWallTopBox)):
         if holderx and not holdery: # LEFT into wall
             borderRight()
@@ -2299,14 +2258,11 @@ while run:
             
     elif (machineLeftBox <= spritex <= machineRightBox) and (spritey <= machineBottomBox):
         if holderx and not holdery: # LEFT into wall
-            borderRight()
-            
+            borderRight()        
         elif not holderx and holdery: # RIGHT into wall
-            borderLeft()
-            
+            borderLeft()          
         elif not holderx and not holdery: # UP into wall
-            borderDown()
-            
+            borderDown()          
         elif holderx and holdery: # DOWN into wall
             borderUp()
             
@@ -2315,25 +2271,23 @@ while run:
             borderRight()   
         elif not holderx and not holdery: # UP into wall
             borderDown()
+
     elif (deskLeftBox <= spritex <= deskRightBox) and (spritey >= deskTopBox):
         if holderx and not holdery: # LEFT into wall
             borderRight()
-            
         elif not holderx and holdery: # RIGHT into wall
-            borderLeft()
-            
+            borderLeft()    
         elif holderx and holdery: # DOWN into wall
             borderUp()
             
     elif (bookShelfBottomBox >= spritey >= bookShelfTopBox) and (spritex <= bookShelfRightBox):
         if holderx and not holdery: # LEFT into wall
             borderRight()
-                
         elif not holderx and not holdery: # UP into wall
-            borderDown()
-                
+            borderDown() 
         elif holderx and holdery: # DOWN into wall
             borderUp()
+
     elif (dangerZoneBottom >= spritey >= dangerZoneTop) and (dangerZoneLeft <= spritex <= dangerZoneRight):
         delay(1.5)
         win.fill((0, 0, 0))
@@ -2344,6 +2298,7 @@ while run:
         dangerZone()
         animate()
         pygame.display.update()
+
     elif (dangerZoneBottom2 >= spritey >= dangerZoneTop2) and (dangerZoneLeft2 <= spritex <= dangerZoneRight2):
         delay(1.5)
         win.fill((0, 0, 0))
@@ -2354,9 +2309,7 @@ while run:
         dangerZone2()
         animate()
         pygame.display.update()
-        
-                
-    
+  
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~        
             
     if keys[pygame.K_LEFT]:
@@ -2406,7 +2359,6 @@ while run:
         back = False
         walkCount = 0
         
-    
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PROFESSOR~~~~~~~~~~~~~~~~~~~~~~~~~~
     if keys[pygame.K_a]:
         spritex2 -= spriteVel
@@ -2447,8 +2399,6 @@ while run:
     win.fill((0, 0, 0))
     win.blit(theLab, (theLabx, theLaby))
     
-
-    
     if spritex > bookShelfBottomBox:
         win.blit(bookshelf3, (theLabx, theLaby))
         win.blit(bookshelf2, (theLabx, theLaby))
@@ -2470,11 +2420,10 @@ while run:
         win.blit(bookshelf3, (theLabx, theLaby))
         win.blit(bookshelf2, (theLabx, theLaby))
         win.blit(bookshelf1, (theLabx, theLaby))
-        
-    
-   
+       
     win.blit(theLabLights, (theLabx, theLaby))
     win.blit(lower, (0, int((540 * gamey) / 1080)))
+
     # SECRET SHORTCUTS
     if keys[pygame.K_1]:
         pygame.draw.rect(win, (255, 0, 0), (dangerZoneRight, dangerZoneBottom, int((50 * gamey) / 1080), int((50 * gamey) / 1080)))
@@ -2490,14 +2439,11 @@ while run:
     if keys[pygame.K_4]:
         pokemon = turtwigB
         print("Pokemon set to Turtwig")
-        
     if keys[pygame.K_5]:
         pokemon = piplupB
-        print("Pokemon set to Piplup")
-        
+        print("Pokemon set to Piplup")      
     if keys[pygame.K_6]:
         pokemon = chimcharB
         print("Pokemon set to Chimchar")
     
 pygame.quit()
-
